@@ -28,8 +28,7 @@ class PersegiPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 16),
             child: Text("Persegi"),
           ),
-          Text(
-              "Persegi atau bujur sangkar adalah bangun datar dua dimensi "),
+          Text("Persegi atau bujur sangkar adalah bangun datar dua dimensi "),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextFormField(
@@ -64,31 +63,37 @@ class PersegiPage extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                         primary: Colors.yellow,
                         textStyle: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold)),
-                    onPressed: (){
+                            fontSize: 15, fontWeight: FontWeight.bold)),
+                    onPressed: () {
                       _persegiController.hitungLuas();
-                    }, child: Text("Hitung Luas",
-                  style: TextStyle(color: Colors.white),)),
+                    },
+                    child: Text(
+                      "Hitung Luas",
+                      style: TextStyle(color: Colors.white),
+                    )),
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       primary: Colors.lightGreenAccent,
-                      textStyle: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold)),
-                  onPressed: (){
+                      textStyle:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                  onPressed: () {
                     _persegiController.hitungKeliling();
-                  }, child: Text("Hitung Keliling",
-                style: TextStyle(color: Colors.black),)),
+                  },
+                  child: Text(
+                    "Hitung Keliling",
+                    style: TextStyle(color: Colors.black),
+                  )),
             ],
           ),
-
-          Obx(() => Text(_persegiController.hasil.value,
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.red),))
+          Obx(() => Text(
+                _persegiController.hasil.value,
+                style: TextStyle(
+                  color: _persegiController.isiHitungLuas.value
+                      ? Colors.redAccent
+                      : Colors.greenAccent,
+                ),
+              ))
         ],
       ),
     );

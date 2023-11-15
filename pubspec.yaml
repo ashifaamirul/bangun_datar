@@ -63,6 +63,8 @@ flutter:
   assets:
     - assets/persegi.png
     - assets/segitiga.png
+    - assets/persegi panjang.jpg
+    - assets/jajar genjang.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
