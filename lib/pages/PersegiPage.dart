@@ -55,36 +55,40 @@ class PersegiPage extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(10)))),
             ),
           ),
-          Center(
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.pinkAccent,
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    textStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold)),
-                onPressed: () {
-                  _persegiController.hitungLuas();
-                },
-                child: Text("Hitung Luas ")),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.yellow,
+                        textStyle: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold)),
+                    onPressed: (){
+                      _persegiController.hitungLuas();
+                    }, child: Text("Hitung Luas",
+                  style: TextStyle(color: Colors.white),)),
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.lightGreenAccent,
+                      textStyle: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold)),
+                  onPressed: (){
+                    _persegiController.hitungKeliling();
+                  }, child: Text("Hitung Keliling",
+                style: TextStyle(color: Colors.black),)),
+            ],
           ),
-          Obx(() => Text("${_persegiController.hasilluas.value}")),
-          Center(
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
 
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    textStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.normal)),
-                onPressed: () {
-                  _persegiController.hitungKeliling();
-                },
-                child: Text("Hitung Keliling ")),
-          ),
-          Obx(() => Text("${_persegiController.hasilkel.value}"))
+          Obx(() => Text(_persegiController.hasil.value,
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.red),))
         ],
       ),
     );
